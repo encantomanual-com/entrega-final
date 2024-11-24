@@ -1,0 +1,89 @@
+.tb {
+    max-height: 400px;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+
+
+.tb tr {
+    height: 60px;
+    margin: 10px;
+}
+
+.tb td {
+    text-align: center;
+    margin: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.insert-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    background-color: #ff523b;
+    cursor: pointer;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+input[type="text"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+input[type="date"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.logup {
+    width: auto;
+}
+
+.rating {
+    display: inline-block;
+    font-size: 0;
+    line-height: 0;
+    border: none;
+    border-style: none;
+
+    padding-left: 80px;
+}
+
+.rating label {
+    display: inline-block;
+    font-size: 24px;
+    color: #ddd;
+    cursor: pointer;
+}
+
+.rating label:before {
+    content: '\2606';
+}
+
+.rating label.checked:before,
+.rating label:hover:before {
+    content: '\2605';
+    color: #ffc107;
+}
+
+input[type="radio"] {
+    display: none;
+}
