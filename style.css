@@ -49,18 +49,6 @@ p {
   margin: 40px 0;
 }
 
-button.normal {
-  font-size: 14px;
-  font-weight: 600;
-  padding: 15px 30px;
-  color: #000;
-  background-color: #fff;
-  border-radius: 4px;
-  cursor: pointer;
-  border: none;
-  outline: none;
-  transition: 0.2s;
-}
 
 body {
   width: 100%;
@@ -128,7 +116,7 @@ body {
 /* Página Home */
 
 .hero {
-  background-image: url("img/banner/banner004.jpg");
+  background-image: url("img/banner/banner-05.jpg");
   height: 90vh;
   width: 100%;
   background-size: cover;
@@ -141,91 +129,23 @@ body {
   color: #e3e6f3;
 }
 
-.hero h4,
+/* .hero h4,
 .hero h2,
 .hero h1,
-.hero p,
-.hero button {
-  color: #e3e6f3;
-}
-
-.hero h4 {
-  padding-bottom: 15px;
-}
+.hero p, */
 
 .hero h1 {
   color: #ff4500;
 }
 
-.hero button {
-  background-image: url("img/button.png");
-  background-color: transparent;
-  color: #ff4500;
-  border: 0;
-  padding: 14px 80px 14px 65px;
-  background-repeat: no-repeat;
-  cursor: pointer;
-  font-weight: 700;
-  font-size: 15px;
+.hero h2 {
+  color: #e3e6f3;
 }
 
-/* Animação botão de ofertas*/
-@keyframes jump {
-  0% {
-      transform: scale(1) rotate(0deg);
-  }
-  30% {
-      transform: scale(1.1) rotate(5deg);
-  }
-  70% {
-      transform: scale(1.1) rotate(-5deg);
-  }
-  100% {
-      transform: scale(1) rotate(0deg);
-  }
+.hero p {
+  color: #e3e6f3;
 }
 
-.hero button {
-  background-image: url("img/button.png");
-  background-color: transparent;
-  color: #ff4500;
-  border: 0;
-  padding: 14px 80px 14px 65px;
-  background-repeat: no-repeat;
-  cursor: pointer;
-  font-weight: 700;
-  font-size: 15px;
-  transition: all 0.3s ease; /* Transição para mudanças de estilo */
-  position: relative;
-  overflow: hidden;
-}
-
-.hero button:hover {
-  animation: jump 0.6s ease-in-out; /* Aplica a animação "jump" */
-  color: #ffffff; /* Altera a cor do texto ao passar o mouse */
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra */
-}
-
-/* Adiciona uma borda animada ao redor do botão */
-.hero button::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 2px solid #ff4500;
-  transition: all 0.4s ease;
-  transform: scale(1.1);
-  opacity: 0;
-}
-
-.hero button:hover::before {
-  transform: scale(1);
-  opacity: 1;
-  border-color: #ffffff; /* Altera a cor da borda na animação */
-}
-/* Fim botão de ofertas */
 
 #feature {
   display: flex;
@@ -432,6 +352,20 @@ body {
   font-weight: 500;
   padding-bottom: 15px;
 }
+
+button.normal {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 15px 30px;
+  color: #000;
+  background-color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: 0.2s;
+}
+
 
 button.white {
   font-size: 13px;
@@ -759,14 +693,6 @@ button.white {
   }
 
   .banner3 .banner-box {
-    width: 100%;
-  }
-
-  #newsletter {
-    padding: 40px 20px;
-  }
-
-  #newsletter .form {
     width: 100%;
   }
 
@@ -1475,4 +1401,448 @@ footer .copyright {
     .social-icons a {
       margin: 5px;
     }
+}
+
+
+
+@media (max-width: 999px) {
+  .section-p1 {
+    padding: 20px;
+  }
+
+  #lg-bag {
+    display: none;
+  }
+
+  .header {
+    padding: 10 px 30px;
+  }
+
+  h1 {
+    font-size: 38px;
+  }
+
+  h2 {
+    font-size: 32px;
+  }
+
+  .hero {
+    padding: 0 20px;
+    background-position: 55%;
+  }
+
+  #feature {
+    justify-content: space-between;
+  }
+
+  #feature .fe-box {
+    width: 155px;
+    margin: 0 0 15px 0;
+  }
+
+  #product1 .pro {
+    width: 100%;
+  }
+
+  #banner {
+    height: 40vh;
+  }
+
+  #sm-banner .banner-box {
+    height: 40vh;
+  }
+
+  #sm-banner .banner-box2 {
+    margin-top: 20px;
+  }
+
+  .banner3 {
+    padding: 0 20px;
+  }
+
+  .banner3 .banner-box {
+    width: 100%;
+  }
+
+  
+  
+  .btn112 {
+    outline: none;
+    border: none;
+    padding: 10px 30px;
+    background-color: #ff523b;
+    color: white;
+    border-radius: 1rem;
+    width: 80%;
+    cursor: pointer;
+    margin-top: 30px;
+    margin-left: 30px;
+  }
+
+  .yorder {
+    display: none;
+  }
+
+
+
+
+  footer .copyright {
+    text-align: start;
+  }
+
+  #prodetails {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #prodetails .single-pro-image {
+    width: 100%;
+    margin-right: 0px;
+  }
+
+  #prodetails .single-pro-details {
+    width: 100%;
+  }
+
+  #about-head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #about-head img {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  #contact-details {
+    flex-direction: column;
+  }
+
+  #contact-details .details {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  #contact-details .map {
+    width: 100%;
+  }
+
+  #form-details {
+    margin: 10px;
+    padding: 30px 10px;
+    flex-wrap: wrap;
+  }
+
+  #cart-add {
+    flex-direction: column;
+  }
+
+  #coupon {
+    width: 100%;
+  }
+
+  #subtotal {
+    width: 100%;
+    padding: 20px;
+  }
+}
+
+#page-header.about-header {
+  background-image: url('img/')
+}
+
+#about-head {
+  display: flex;
+  align-items: center;
+}
+
+#about-head img {
+  width: 50%;
+  height: auto;
+}
+
+#about-head div {
+  padding-left: 40px;
+}
+
+#contact-details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#contact-details .details {
+  width: 40%;
+}
+
+#contact-details .details h2,
+#form-details form h2 {
+  font-size: 26px;
+  line-height: 35px;
+  padding: 20px 0;
+}
+
+#contact-details .details span,
+#form-details form span {
+  font-size: 12px;
+}
+
+#contact-details .details h3 {
+  font-size: 16px;
+  padding-bottom: 15px;
+}
+
+#contact-details .details li {
+  list-style: none;
+  display: flex;
+  padding: 10px 0;
+}
+
+#contact-details .details li i {
+  font-size: 14px;
+  padding-right: 22px;
+}
+
+#contact-details .details li p {
+  margin: 0;
+  font-size: 14px;
+}
+
+#contact-details .map {
+  width: 55%;
+  height: 400px;
+}
+
+#contact-details .map iframe {
+  width: 100%;
+  height: 100%;
+}
+
+#form-details {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px;
+  padding: 80px;
+  border: 1px solid #e1e1e1;
+}
+
+#form-details form {
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#form-details form input,
+#form-details form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  outline: none;
+  margin-bottom: 20px;
+  border: 1px solid #e1e1e1;
+}
+
+#form-details form button {
+  background-color: #088178;
+  color: #fff;
+}
+
+#form-details .people div {
+  padding-bottom: 25px;
+  display: flex;
+  align-items: flex-start;
+}
+
+#form-details .people div img {
+  width: 65px;
+  height: 65px;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+#form-details .people div p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 25px;
+}
+
+#form-details .people div p span {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+}
+
+#cart {
+  overflow-x: auto;
+}
+
+#cart table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  white-space: nowrap;
+}
+
+#cart table img {
+  width: 70px;
+}
+
+#cart table td:nth-child(1) {
+  width: 100px;
+  text-align: center;
+}
+
+#cart table td:nth-child(2) {
+  width: 150px;
+  text-align: center;
+}
+
+#cart table td:nth-child(3) {
+  width: 250px;
+  text-align: center;
+}
+
+#cart table td:nth-child(4),
+#cart table td:nth-child(5),
+#cart table td:nth-child(6) {
+  width: 150px;
+  text-align: center;
+}
+
+#cart table td:nth-child(5) input {
+  width: 70px;
+  padding: 10px 5px 10px 15px;
+}
+
+#cart table thead {
+  border: 1px solid #e2e9e1;
+  border-left: none;
+  border-right: none;
+}
+
+#cart table thead td {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 13px;
+  padding: 18px 0;
+}
+
+#cart table tbody tr td {
+  padding-top: 15px;
+}
+
+#cart table tbody td {
+  font-size: 13px;
+}
+
+#cart-add {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+#coupon {
+  width: 50%;
+  margin-bottom: 30px;
+}
+
+#coupon h3 {
+  padding-bottom: 15px;
+}
+
+#coupon input {
+  padding: 10px 20px;
+  outline: none;
+  width: 60%;
+  margin-right: 10px;
+  border: 1px solid #e2e9e1;
+}
+
+#coupon button,
+#subtotal button {
+  background-color: #ff523b;
+  color: #fff;
+  padding: 12px 20px;
+}
+
+#subtotal {
+  width: 50%;
+  margin-bottom: 30px;
+  border: 1px solid #e2e9e1;
+  padding: 30px;
+}
+
+#subtotal table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+#subtotal table td {
+  width: 50%;
+  border: 1px solid #e2e9e1;
+  padding: 10px;
+  font-size: 13px;
+}
+
+#form {
+  background-color: white;
+  margin: 0px;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 1px 1px 4px 1px #e6e6e6;
+}
+
+
+.input1 {
+  display: block;
+  width: 30%;
+  margin: 40px auto;
+  padding: 10px 5px;
+  border: none;
+  border-bottom: 0.01rem dimgray solid;
+  outline: none;
+}
+
+.select1 {
+  display: block;
+  width: 30%;
+  margin: 40px auto;
+  padding: 10px 5px;
+  border: none;
+  border-bottom: 0.01rem dimgray solid;
+  outline: none;
+}
+
+.btn {
+  outline: none;
+  border: none;
+  padding: 10px 30px;
+  background-color: #ff523b;
+  color: white;
+  border-radius: 1rem;
+  width: 20%;
+  cursor: pointer;
+}
+
+.btn:hover {
+  transform: scale(1.06);
+}
+
+a.signn {
+  color: #465b52;
+  font-size: 18px;
+}
+
+a.signn:hover {
+  color: #ff523b;
+
+}
+
+div.sign {
+  display: flex;
+  margin: 30px 0;
+  justify-content: center;
 }

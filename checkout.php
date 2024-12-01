@@ -5,21 +5,22 @@ if (isset($_POST['sub'])) {
     include("include/connect.php");
 
     $id_conta = $_SESSION['id_conta'];
+    $cep = str_replace("-", "", $_POST['cep']); // Remove o hífen
     $end = $_POST['endereco'];
     $cidade = $_POST['cidade'];
-    $estado = $_POST['estado'];
     $num_cartao = $_POST['num_cartao'];
     $query = "";
+    
 
     if (empty($num_cartao)) {
-        $query = "insert into `pedidos` (data_pedido, data_entrega, id_conta, endereco, cidade, estado, num_cartao, total) values(CURDATE(), NULL, '$id_conta', '$end', '$cidade', '$estado', NULL, 0)";
+        $query = "insert into `pedidos` (data_pedido, data_entrega, id_conta, cep, endereco, cidade, num_cartao, total) values(CURDATE(), NULL, '$id_conta', '$cep', '$end', '$cidade', NULL, 0)";
     } else {
         if (preg_match('/\D/', $num_cartao) || strlen($num_cartao) < 16) {
             echo "<script> alert('Número de cartão inválido!'); setTimeout(function(){ window.location.href = 'checkout.php'; }, 100); </script>";
             exit();
         }
 
-        $query = "insert into `pedidos` (data_pedido, data_entrega, id_conta, endereco, cidade, estado, num_cartao, total) values(CURDATE(), NULL, '$id_conta', '$end', '$cidade', '$estado', '$num_cartao', 0)";
+        $query = "insert into `pedidos` (data_pedido, data_entrega, id_conta, cep, endereco, cidade, num_cartao, total) values(CURDATE(), NULL, '$id_conta', '$cep', '$end', '$cidade', '$num_cartao', 0)";
     }
     $result = mysqli_query($con, $query);
 
@@ -79,6 +80,10 @@ if (isset($_POST['sub'])) {
     <link rel="stylesheet" href="style.css"/>
     <link rel="stylesheet" href="css/checkout.css">
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
+
 
     <title>Formulário de Pedido - Encanto Manual</title>
 
@@ -125,10 +130,10 @@ if (isset($_POST['sub'])) {
             <form method="post" id="form1">
 
                 <h3 style="color: darkred; margin: auto"></h3>
+                <input class="input11" type="text" name="cep" placeholder="CEP" required onblur="validarCep()">
                 <input class="input11" type="text" name="endereco" placeholder="Endereço" required>
                 <input class="input11" type="text" name="cidade" placeholder="Cidade" required>
-                <input class="input11" type="text" name="estado" placeholder="Estado" maxlength="2" required>
-                <input class="input11" id="num_cartao-field" type="text" name="num_cartao" placeholder="Número de cartão">
+                <input class="input11" id="num_cartao-field" type="text" name="num_cartao" maxlength="16" placeholder="Número de cartão">
                 <div>
                     <input class="input2" type="radio" id="ac1" name="dbt" value="cod" onchange="showInputBox()"> Pagamento
                     por boleto
@@ -226,23 +231,24 @@ if (isset($_POST['sub'])) {
         <p>&copy; 2024 Encanto Manual. Todos os direitos reservados.</p>
     </div>
 </footer>
-
+<!-- Menu Lateral -->
     <script src="script.js"></script>
+
+<!-- API CEP -->
+    <script src="js/validarCep.js"></script>
+
+
+<script>
+    // Máscara para o campo CEP
+    $(document).ready(function(){
+            $("input[name='cep']").mask("00000-000");
+    });
+</script>
+
+
 </body>
 
 </html>
-
-<script>
-    function showInputBox() {
-        var select = document.querySelector('#ac1');
-        var inputBox = document.getElementById("num_cartao-field");
-        if (!select.checked) {
-            inputBox.style.display = "block";
-        } else {
-            inputBox.style.display = "none";
-        }
-    }
-</script>
 
 <script>
 window.addEventListener("unload", function() {

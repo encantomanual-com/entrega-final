@@ -16,6 +16,8 @@ if (empty($_SESSION['id_conta']))
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
 
     <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="css/btn-banner.css">
+
 
     <title>Encanto Manual - Valorizando o talento local e transformando o comércio!</title>
 
@@ -62,6 +64,60 @@ if (empty($_SESSION['id_conta']))
         <p>Cada peça é única assim como quem cria!</p>
         <a href="shop.php">
             <button>Ver ofertas</button>
+            <style>
+                .hero button {
+  background-image: linear-gradient(45deg, #ff4500, #ff9900);
+  background-color: transparent;
+  color: #ffffff;
+  border: 0;
+  padding: 14px 80px 14px 65px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 16px;
+  border-radius: 8px; /* Bordas arredondadas */
+  box-shadow: 0px 4px 10px rgba(255, 69, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.hero button:hover {
+  animation: jump 0.6s ease-in-out;
+  background-image: linear-gradient(45deg, #ff9900, #ff4500);
+  box-shadow: 0px 8px 20px rgba(255, 69, 0, 0.8);
+  transform: translateY(-2px) scale(1.05); /* Efeito de leve subida */
+}
+
+/* Efeito de brilho pulsante */
+.hero button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 0%, transparent 60%);
+  transform: translate(-50%, -50%) scale(0);
+  border-radius: 50%;
+  z-index: 0;
+  opacity: 0.7;
+  transition: all 0.4s ease;
+}
+
+.hero button:hover::before {
+  transform: translate(-50%, -50%) scale(1.2);
+  opacity: 1;
+}
+
+/* Efeito 3D de texto */
+.hero button span {
+  position: relative;
+  z-index: 1;
+  text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+            </style>
         </a>
     </section>
 
@@ -94,34 +150,36 @@ if (empty($_SESSION['id_conta']))
 
 
     <section id="banner" class="section-m1">
-        <h4>Promoções</h4>
-        <h2>Mais de <span>70% Off</span> - Todos os produtos!</h2>
-        <a href="shop.php">
-            <button class="normal">COMPRE AGORA</button>
-        </a>
+    <h4>Promoções</h4>
+    <h2>Mais de <span>70% Off</span> - Todos os produtos!</h2>
+    <a href="shop.php">
+        <button class="normal"><span>COMPRE AGORA</span></button>
+    </a>
     </section>
-
 
 
     <section class="banner3" id="banner3">
         <div class="banner-box">
-            <h2>Itens de decoração</h2>
+            <h2>ITENS DE DECORAÇÃO</h2>
             <h3> 25% OFF</h3>
+            <a href="shop.php" class="normal-link"><button class="normal">Comprar agora</button></a>
         </div>
         <div class="banner-box banner-box2">
-            <h2>Obras de arte</h2>
+            <h2>OBRAS DE ARTE</h2>
             <h3>30% OFF</h3>
+            <a href="shop.php" class="normal-link"><button class="normal">Comprar agora</button></a>
         </div>
         <div class="banner-box banner-box3">
-            <h2>Acessórios</h2>
+            <h2>ACESSÓRIOS</h2>
             <h3>50% OFF</h3>
+            <a href="shop.php" class="normal-link"><button class="normal">Comprar agora</button></a>
         </div>
     </section>
 
     <section id="page-header" class="about-header">
         <h2>O encanto que realmente é manual.</h2>
 
-        <p style="color: white;">Arte feita a mão para você!</p>
+        <p style="color: #000;">Arte feita a mão para você!</p>
 
         
     <style>

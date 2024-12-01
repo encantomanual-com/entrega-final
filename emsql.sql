@@ -9,7 +9,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `emsql`
+-- Database: `emsql1`
 --
 
 -- --------------------------------------------------------
@@ -83,9 +83,9 @@ CREATE TABLE `pedidos` (
   `data_pedido` date NOT NULL,
   `data_entrega` date DEFAULT NULL,
   `id_conta` int(11) NOT NULL,
+  `cep` int(50) NOT NULL,
   `endereco` varchar(255) NOT NULL,
   `cidade` varchar(50) NOT NULL,
-  `estado` varchar(100) NOT NULL,
   `num_cartao` char(16) DEFAULT NULL,
   `total` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -94,7 +94,7 @@ CREATE TABLE `pedidos` (
 -- Inserindo dados na tabela `pedidos`
 --
 
-INSERT INTO `pedidos` (`id_pedido`, `data_pedido`, `data_entrega`, `id_conta`, `endereco`, `cidade`, `estado`, `num_cartao`, `total`) VALUES
+INSERT INTO `pedidos` (`id_pedido`, `data_pedido`, `data_entrega`, `id_conta`,`cep`, `endereco`, `cidade`, `num_cartao`, `total`) VALUES
 (17, '2023-05-15', '2023-05-15', 14, 'Rua das Flores, 123, Centro', 'São Paulo', 'Brasil', NULL, 375),
 (18, '2023-05-15', '2023-05-15', 20, 'Avenida Paulista, 1500, Bela Vista', 'São Paulo', 'Brasil', NULL, 130),
 (19, '2023-05-15', '2023-05-15', 18, 'Rua XV de Novembro, 32A, Centro', 'Curitiba', 'Brasil', '3120246834724793', 380);

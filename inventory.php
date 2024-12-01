@@ -128,7 +128,7 @@ if (isset($_GET['odd'])) {
                 <input type="text" id="search" name="search">
                 <label for="category-filter">Categoria:</label>
                 <select id="category-filter" name="cat">
-										<option>...</option>
+					<!-- <option value="...">Selecione uma categoria</option> -->
                     <option value="all">Todos</option>
                     <option value="Decoração">Decoração</option>
                     <option value="Acessório">Acessórios</option>
@@ -311,7 +311,7 @@ if (isset($_GET['odd'])) {
 												<td>$data_pedido</td>
 												<td>$data_entrega</td>
 										<td>$pri</td>
-										<td>$add</td>";
+										<td>$end</td>";
 
 							if ($data_entrega == "Não entregue")
 								echo "<td><a href='inventory.php?odd=$id_pedido'><button id='oupdate-btn'>ENTREGUE</button></a></td>";

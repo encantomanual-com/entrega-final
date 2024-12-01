@@ -84,7 +84,7 @@ if (isset($_POST['submit'])) {
     </form>
 
     <div class="sign">
-        <a href="cadastrar.php" class="signn">Já possuí uma conta?</a>
+        <a href="cadastrar.php" class="signn">Não possuí uma conta? Cadastre-se</a>
     </div>
 
 

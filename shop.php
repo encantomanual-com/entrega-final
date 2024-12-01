@@ -69,7 +69,7 @@ session_start();
             <input type="text" id="search" name="search">
             <label for="category-filter">Categorias:</label>
             <select id="category-filter" name="cat">
-                <option>...</option>
+                <!-- <option value="...">Selecione uma categoria</option> -->
                 <option value="all">Todos</option>
                 <option value="Decoração">Decoração</option>
                 <option value="Acessório">Acessórios</option>
@@ -77,7 +77,7 @@ session_start();
             <button type="submit" id="search-btn" name="search1">Buscar</button>
         </form>
     </div>
-
+<!-- Funcionamento da Barra de Pesquisa de Produtos -->
     <?php
     include("include/connect.php");
     if (isset($_POST['search1'])) {

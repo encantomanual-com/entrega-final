@@ -55,7 +55,7 @@ if (isset($_POST['submit'])) {
                 <li><a href="shop.php">Produto</a></li>
                 <li><a href="contato.php">Contato</a></li>
 
-                <?php
+        <?php
 
         if ($_SESSION['id_conta'] < 0) {
           echo "   <li><a href='login.php'>Login</a></li>

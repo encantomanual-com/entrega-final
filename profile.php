@@ -253,14 +253,14 @@ if (isset($_GET['c'])) {
                       <td><input name='a3' type='text' value='$email'></td>
                     </tr>
                     <tr>
-                      <td>Cpf</td>
+                      <td>CPF</td>
                       <td>:</td>
-                      <td><input name='a4' type='text' value='$cpf'></td>
+                      <td><input name='a4' type='text' value='$cpf' maxlength='11'></td>
                     </tr>
                     <tr>
-                    <td>Telefone</td>
+                    <td>Celular</td>
                     <td>:</td>
-                    <td><input name='a5' type='text' value='$contato'></td>
+                    <td><input name='a5' type='text' value='$contato' maxlength='11'></td>
                     </tr>
                     <tr>
                     <td>Data de nascimento</td>
@@ -510,7 +510,6 @@ if (isset($_GET['c'])) {
         <p>&copy; 2024 Encanto Manual. Todos os direitos reservados.</p>
     </div>
 </footer>
-
 
 
         <script src="script.js"></script>

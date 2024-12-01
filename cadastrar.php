@@ -29,20 +29,36 @@ if (isset($_POST['submit'])) {
         echo "<script> alert('Senha muito curta. Sua senha deve ter no mínimo 8 caracteres!'); setTimeout(function(){ window.location.href = 'cadastrar.php'; }, 100); </script>";
         exit();
     }
-    if (strtotime($data_nasc) > time()) {
-        echo "<script> alert('Data inválida!'); setTimeout(function(){ window.location.href = 'cadastrar.php'; }, 100); </script>";
+    // Valida o formato usando regex
+    if (!preg_match('/^\d{2}\/\d{2}\/\d{4}$/', $data_nasc)) {
+        echo "<script> alert('Data de nascimento inválida!'); setTimeout(function(){ window.location.href = 'cadastrar.php'; }, 100); </script>";
         exit();
     }
+
+    // Converte para o formato AAAA-MM-DD para inserir no banco, se necessário
+    $dataFormatada = DateTime::createFromFormat('d/m/Y', $data_nasc);
+    if (!$dataFormatada) {
+        echo "<script> alert('Data de nascimento inválida!'); setTimeout(function(){ window.location.href = 'cadastrar.php'; }, 100); </script>";
+        exit();
+    }
+    $data_nasc = $dataFormatada->format('Y-m-d');
+
+
     if ($genero == "S") {
         echo "<script> alert('Selecione o seu gênero!'); setTimeout(function(){ window.location.href = 'cadastrar.php'; }, 100); </script>";
         exit();
     }
-    if (preg_match('/\D/', $cpf) || strlen($cpf) != 11) {
+    $cpf = preg_replace('/\D/', '', $cpf); // Remove a máscara antes de validar
+
+    if (strlen($cpf) != 11) {
         echo "<script> alert('CPF inválido'); setTimeout(function(){ window.location.href = 'cadastrar.php'; }, 100); </script>";
         exit();
     }
-    if (preg_match('/\D/', $contato) || strlen($contato) != 11) {
-        echo "<script> alert('Número de contato inválido'); setTimeout(function(){ window.location.href = 'cadastrar.php'; }, 100); </script>";
+    // Remove a máscara do contato
+    $contato = preg_replace('/\D/', '', $contato);
+
+    if (strlen($contato) != 11) {
+        echo "<script> alert('Número de celular inválido'); setTimeout(function(){ window.location.href = 'cadastrar.php'; }, 100); </script>";
         exit();
     }
 
@@ -53,7 +69,7 @@ if (isset($_POST['submit'])) {
 
 
     if ($result) {
-        echo "<script> alert('Conta criada com sucesso!'); setTimeout(function(){ window.location.href = 'login.php'; }, 100); </script>"; // exit();
+        echo "<script> alert('Conta criada com sucesso!'); setTimeout(function(){ window.location.href = 'login.php'; }, 100); </script>";
     }
 
 }
@@ -102,20 +118,20 @@ if (isset($_POST['submit'])) {
 
     <form method="post" id="form">
         <h3 style="color: darkred; margin: auto"></h3>
-        <input class="input1" id="fn" name="nome" type="text" placeholder="Nome *" required="required">
-        <input class="input1" id="ln" name="sobrenome" type="text" placeholder="Sobrenome *" required="required">
+        <input class="input1" id="nome" name="nome" type="text" placeholder="Nome *" required="required">
+        <input class="input1" id="sobrenome" name="sobrenome" type="text" placeholder="Sobrenome *" required="required">
         <input class="input1" id="user" name="username" type="text" placeholder="Nome de usuário *" required="required">
         <input class="input1" id="email" name="email" type="text" placeholder="Email *" required="required">
-        <input class="input1" id="pass" name="password" type="password" placeholder="Senha*" required="required">
-        <input class="input1" id="cpass" name="confirmPassword" type="password" placeholder="Confirme sua senha *"
-            required="required">
-        <input class="input1" id="cpf" name="cpf" type="number" placeholder="CPF *" required="required">
-        <input class="input1" id="data_nasc" name="data_nasc" type="date" placeholder="Date Of Birth " required="required">
-        <input class="input1" id="contato" name="contato" type="number" placeholder="Contato *" required="required">
+        <input class="input1" id="pass" name="password" type="password" placeholder="Senha*" maxlength="8" required="required">
+        <input class="input1" id="cpass" name="confirmPassword" type="password" placeholder="Confirme sua senha *" maxlength="8" required="required">
+        <input class="input1" id="cpf" name="cpf" type="text" placeholder="CPF *" required="required" maxlength="14" oninput="mascararCPF(this)">
+        <input class="input1" id="data_nasc" name="data_nasc" type="text" placeholder="Data de nascimento" maxlength="10" oninput="mascararData(this)" required="required">
+        <input class="input1" id="contato" name="contato" type="text" placeholder="Número de celular*" required="required" oninput="mascararCelular(this)" maxlength="15">
         <select class="select1" id="genero" name="genero" required="required">
             <option value="S">Gênero</option>
             <option value="M">Masculino</option>
             <option value="F">Feminino</option>
+            <option value="O">Outros</option>
         </select>
         <button name="submit" type="submit" class="btn">Enviar</button>
 
@@ -162,6 +178,15 @@ if (isset($_POST['submit'])) {
 
 <!-- Script JS menu lateral -->
     <script src="script.js"></script>
+    
+<!-- SCRIPT PARA MASCARAR Celular -->
+    <script src="js/mascararCelular.js"></script>
+
+<!-- Script para Mascarar CPF -->
+    <script src="js/mascararCpf.js"></script>
+
+<!-- Script para Mascarar Data de Nascimento -->
+    <script src="js/mascararData.js"></script>
 </body>
 
 </html>
