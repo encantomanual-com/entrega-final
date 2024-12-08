@@ -19,6 +19,7 @@ if (isset($_POST['submit'])) {
   $cpf = $_POST['a4'];
   $contato = $_POST['a5'];
   $data_nasc = $_POST['a6'];
+  $password = $_POST['a7'];
 
   $query = "select * from contas where (cpf='$cpf' or contato='$contato' or email='$email') and id_conta != $id_conta ";
 
@@ -40,8 +41,12 @@ if (isset($_POST['submit'])) {
     echo "<script> alert('Número de contato inválido. Número deve conter 11 dígitos!'); setTimeout(function(){ window.location.href = 'profile.php'; }, 10); </script>";
     exit();
   }
+  if ($password < 8) {
+    echo "<script> alert('Senha muito curta. Sua senha deve ter no mínimo 8 caracteres!'); setTimeout(function(){ window.location.href = 'cadastrar.php'; }, 100); </script>";
+    exit();
+  }
 
-  $query = "UPDATE contas SET nome = '$nome', sobrenome='$sobrenome', email='$email', contato='$contato', cpf='$cpf', data_nasc='$data_nasc' WHERE id_conta = $id_conta";
+  $query = "UPDATE contas SET nome = '$nome', sobrenome='$sobrenome', email='$email', contato='$contato', cpf='$cpf', data_nasc='$data_nasc', password='$password' WHERE id_conta = $id_conta";
 
   $result = mysqli_query($con, $query);
   header("Location: profile.php");
@@ -168,6 +173,7 @@ if (isset($_GET['c'])) {
                 $cpf = $row['cpf'];
                 $data_nasc = $row['data_nasc'];
                 $user = $row['username'];
+                $password = $row['password'];
                 $genero = $row['genero'];
                 $name = $nome . " " . $sobrenome;
 
@@ -233,6 +239,7 @@ if (isset($_GET['c'])) {
                 $cpf = $row['cpf'];
                 $data_nasc = $row['data_nasc'];
                 $user = $row['username'];
+                $password = $row['password'];
                 $genero = $row['genero'];
 
                 echo 
@@ -267,6 +274,11 @@ if (isset($_GET['c'])) {
                     <td>:</td>
                     <td><input name='a6' type='date' value='$data_nasc'></td>
                     </tr>
+                    <tr>
+                    <td>Senha</td>
+                    <td>:</td>
+                    <td><input name='a7' type='password' value='$password'></td>
+                    </tr>
 
                     <tr>
                     <td><button name='submit' type='submit' class='btn' style='width: 50%;'>Enviar</button></td>
@@ -293,6 +305,7 @@ if (isset($_GET['c'])) {
                 $cpf = $row['cpf'];
                 $data_nasc = $row['data_nasc'];
                 $user = $row['username'];
+                $password = $row['password'];
                 $genero = $row['genero'];
                 $name = $nome . " " . $sobrenome;
 
@@ -331,6 +344,11 @@ if (isset($_GET['c'])) {
                       <td>Username</td>
                       <td>:</td>
                       <td>$user</td>
+                    </tr>
+                    <tr>
+                      <td>Senha</td>
+                      <td>:</td>
+                      <td>$password</td>
                     </tr>
                     <tr>
                       <td>Gênero</td>
